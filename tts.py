@@ -1,10 +1,13 @@
-from flask import Flask, request, send_file
+from flask import Flask, request, send_file, render_template
 import os
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 import utils
 
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/getaudio', methods=['POST'])
 def get_audio():
@@ -19,7 +22,6 @@ def get_audio():
     if file.filename == '':
         return 'No selected file', 400
 
-    
     filename = 'received_audio.wav'
     file.save(filename)
 
@@ -27,8 +29,7 @@ def get_audio():
     get_assistant_reply = utils.get_assistant_reply(query=transcript)
     assistant_reply_voice = utils.get_text_to_audio(get_assistant_reply)
 
-
     return send_file(assistant_reply_voice, as_attachment=True)
 
 if __name__ == '__main__':
-    app.run(debug=True,port=5001)
+    app.run(debug=True, host='0.0.0.0', port=5001)
