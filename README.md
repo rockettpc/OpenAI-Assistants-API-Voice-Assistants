@@ -3,6 +3,8 @@ This project is currently under development. I found the orignal code repo at ht
 
 I thought it was a pretty cool idea and it fits a specific need for a custom voice assistant that can use OpenAI's Assistants API. You need to login to platform.openai.com and create an assistant, give it your custom instructions, enable the features you want it to use and add files if you want to have a custom knowledge base. This project requires an OpenAI API key and the Assistants ID as well as a Thread ID to use.
 
+### Note: The OpenAI API is a paid service. Please ensure you are aware of the costs associated with its use.
+
 ### Clone Repo
 ```
 git clone https://github.com/rockettpc/OpenAI-Assistants-API-Voice-Assistants.git
